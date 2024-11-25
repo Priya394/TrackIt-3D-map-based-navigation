@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackit Navigation - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            background-color: #020202;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #18c5f5;
+            cursor: pointer;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #61dafb;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('assets/hero_bg.jpg') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #ffffff;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .hero p {
+            margin: 20px 0;
+            font-size: 1.5rem;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .hero button {
+            background-color: #61dafb;
+            color: #000;
+            font-size: 18px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(97, 218, 251, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .hero button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(97, 218, 251, 0.6);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 50px;
+            background: #040552;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #18c5f5;
+        }
+
+        .features p {
+            margin-bottom: 50px;
+            font-size: 1.2rem;
+            color: #e1e1e1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #61dafb;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            color: #d0d0d0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #020202;
+            padding: 20px 50px;
+            text-align: center;
+            color: #ffffff;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #61dafb;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #18c5f5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Trackit</div>
+        <ul>
+            <li><a href="#hero"onclick="location.href='homepage.html'">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#route" onclick="location.href='route.html'">Route</a></li>
+            <li><a href="#about" onclick="location.href='aboutus.html'">About Us</a></li>
+            <li><a href="#login" onclick="location.href='Signup.html'">SignUp</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Welcome to Trackit</h1>
+            <p>Your ultimate navigation companion for railway stations and beyond.</p>
+            <!-- Navigate to loginpage.html -->
+            <button onclick="location.href='Signup.html'">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Key Features</h2>
+        <p>Discover how Trackit can make navigation easier and more accessible for everyone.</p>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <div class="feature-title">Interactive Maps</div>
+                <p class="feature-description">Navigate seamlessly with 3D indoor maps and real-time routing.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="feature-title">Text Guidance</div>
+                <p class="feature-description">Turn-by-turn text navigation for users.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-location-arrow"></i></div>
+                <div class="feature-title">Shortest Routes</div>
+                <p class="feature-description">Get the fastest route to your destination, reducing travel time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Trackit. All rights reserved. | <a href="#contact">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

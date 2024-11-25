@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackIt Sign-Up</title>
+    <link rel="stylesheet" href="sign.css">
+
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="menubar">
+            <div class="logo">TrackIt</div>
+            <div class="menu">
+                <button class="menu-button" onclick="location.href='homepage.html'">Home</button>
+                <button class="menu-button" onclick="location.href='aboutus.html'">About</button>
+                <button class="menu-button">Features</button>
+                <button class="menu-button">Contact Us</button>
+            </div>
+            <a href="#" style="color: white; text-decoration: none;"></a> 
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="left-side">
+            <img src="assets/tracking.png" alt="Tracking Illustration">
+        </div>
+        <div class="form-container">
+            <h2>Join TrackIt for free</h2>
+            <form id="signupForm">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button id="signupButton" type="submit" disabled>Sign Up</button>
+                <button id="loginButton" type="submit" onclick="location.href='Login.html'">Login</button>
+            </form>
+            
+            <p>Or sign up using:</p>
+            <div class="social-signup">
+                <img src="assets/linkedin.png" alt="LinkedIn">
+                <img src="assets/google.png" alt="Google">
+                <img src="assets/facebook .png" alt="Facebook">
+                <img src="assets/github.png" alt="GitHub">
+            </div>
+        </div>
+    </div>
+
+    <script src="sign.js"></script>
+
+</body>
+</html>

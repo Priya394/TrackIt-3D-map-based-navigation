@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackIt Complaint</title>
+    <link rel="stylesheet" href="complaint.css">
+
+</head>
+<body>
+    <header>
+        <div class="menubar">
+            <div class="logo">TrackIt</div>
+            <div class="menu">
+                <button class="menu-button" onclick="location.href='homepage.html'">Home</button>
+                <button class="menu-button" onclick="location.href='route.html'">Route</button>
+                <button class="menu-button" onclick="location.href='aboutus.html'">About</button>
+                
+                <button class="menu-button" onclick="location.href='profile.html'">Profile</button>
+            </div>
+           
+        </div>
+    </header>
+
+    <div class="content">
+        <!-- Chatbox -->
+        <div class="section">
+            <div class="section-title">Complaint Chatbox</div>
+            <div class="chat-box" id="chatBox">
+                <div class="chat-messages" id="chatMessages"></div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Type your message...">
+                <button class="send-button" id="sendButton">➤</button>
+            </div>
+        </div>
+
+        <!-- Emergency Contact -->
+        <script src="complaint.js"></script>
+       
+</body>
+</html>
+

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackIt Emergency</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-image: url('assets/station_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menubar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #07c2f6;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu-button:hover {
+            background-color: #61dafb;
+            color: #000;
+            border-radius: 5px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(15px) saturate(200%);
+            padding: 20px;
+            margin: 15px 0;
+            width: 80%;
+            max-width: 600px;
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Chatbox Styling */
+        .chat-box {
+            max-height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border-radius: 10px;
+            background: #ece5dd;
+            color: #000;
+        }
+
+        .chat-messages {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-message {
+            max-width: 80%;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background: #dcf8c6;
+        }
+
+        .support-message {
+            align-self: flex-start;
+            background: #ffffff;
+        }
+
+        .chat-input-container {
+            display: flex;
+            padding: 10px;
+            gap: 10px;
+            border-top: 1px solid #ccc;
+            background: #f6f6f6;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .send-button {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .send-button:hover {
+            background: #45a049;
+        }
+
+        /* Emergency Contact */
+        .contact-header {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .call-button {
+            background-color: #d63031;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .call-button:hover {
+            background-color: #e17055;
+        }
+
+        /* Feedback Form */
+        .feedback-header {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            background-color: #0984e3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #74b9ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menubar">
+            <div class="logo">TrackIt</div>
+            <div class="menu">
+                <button class="menu-button" onclick="location.href='homepage.html'">Home</button>
+                <button class="menu-button" onclick="location.href='route.html'">Route</button>
+                <button class="menu-button" onclick="location.href='aboutus.html'">About</button>
+                <button class="menu-button" onclick="location.href='Emergency.html'">Emergency</button>
+                <button class="menu-button" onclick="location.href='profile.html'">Profile</button>
+            </div>
+           
+        </div>
+    </header>
+
+    <div class="content">
+        <!-- Chatbox -->
+        <div class="section">
+            <div class="section-title">Complaint Chatbox</div>
+            <div class="chat-box" id="chatBox">
+                <div class="chat-messages" id="chatMessages"></div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Type your message...">
+                <button class="send-button" id="sendButton">➤</button>
+            </div>
+        </div>
+
+        <!-- Emergency Contact -->
+        <div class="section">
+            <div class="section-title">Emergency Contact</div>
+            <p>If you need immediate assistance, contact our helpline:</p>
+            <a href="tel:+911234567890" class="call-button">Call Now</a>
+        </div>
+
+        
+
+    <script>
+        const faqKeywords = [
+            { keywords: ["washroom", "toilet"], response: "Washrooms are near platform 3." },
+            { keywords: ["ticket", "book"], response: "Tickets are available online or at the counter." },
+            { keywords: ["wifi"], response: "Free WiFi is available at 'StationWiFi'." }
+        ];
+
+        const chatMessages = document.getElementById("chatMessages");
+        const chatInput = document.getElementById("chatInput");
+        const sendButton = document.getElementById("sendButton");
+
+        function findResponse(message) {
+            const lowercase = message.toLowerCase();
+            for (const faq of faqKeywords) {
+                if (faq.keywords.some(kw => lowercase.includes(kw))) return faq.response;
+            }
+            return "Sorry, I don't have an answer for that.";
+        }
+
+        function addMessage(sender, text) {
+            const messageEl = document.createElement("div");
+            messageEl.className = `chat-message ${sender}-message`;
+            messageEl.textContent = text;
+            chatMessages.appendChild(messageEl);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function handleSend() {
+            const userMessage = chatInput.value.trim();
+            if (userMessage) {
+                addMessage("user", userMessage);
+                setTimeout(() => addMessage("support", findResponse(userMessage)), 500);
+                chatInput.value = "";
+            }
+        }
+
+        chatInput.addEventListener("keydown", e => e.key === "Enter" && handleSend());
+        sendButton.addEventListener("click", handleSend);
+    </script>
+</body>
+</html>
+
